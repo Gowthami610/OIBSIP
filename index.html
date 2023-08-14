@@ -1,0 +1,412 @@
+r <!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content=
+		"width=device-width, initial-scale=1.0">
+<style>
+	* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: white;
+	color: black;
+	font-family: "Fira Sans", sans-serif;       
+	background-color: rgb(215, 112, 155);
+}
+nav {
+	width: 100%;
+	height: 80px;
+	display: flex;
+	justify-content: space-between;
+	padding: 20px 5%;
+	background-color: rgb(210, 29, 99);
+}
+nav .heading {
+	font-size: 30px;
+	font-weight: 700;
+	color: rgb(47, 18, 28);       
+}
+nav ul {
+	display: flex;
+	list-style: none;
+}
+nav ul li {
+	padding: 8px 15px;
+	border-radius: 10px;
+	transition: 0.2s ease-in;
+}
+nav ul li a {
+	color: black;
+	font-size: 20px;
+	font-weight: 500;
+	text-decoration: none;
+	color: black;
+}
+nav ul li a:hover {
+	color: white;
+}
+nav .sideMenuButton {
+	font-size: 30px;
+	font-weight: bolder;
+	cursor: pointer;
+	display: none;     
+}
+.sideNavigationBar {
+	height: 100%;
+	position: fixed;
+	top: 0;
+	right: 0%;
+	overflow-x: hidden;
+	transition: 0.3s ease-in;
+	padding-top: 40px;
+	display: none;
+}
+.sideNavigationBar a {
+	padding: 8px 8px 8px 40px;	
+	font-size: 25px;
+	font-weight: 500;	
+	transition: 0.3s;
+	text-decoration: none;
+}
+.sideNavigationBar a button {
+	padding: 10px 20px;
+	border-radius: 10px;	
+	font-size: 16px;
+	border-style: none;
+	font-weight: 700;
+}
+.sideNavigationBar a:hover {
+	color: white;
+}
+.sideNavigationBar .closeButton {
+	position: absolute;
+	top: 10px;
+	right: 25px;
+	font-size: 20px;
+	margin-left: 50px;
+}
+.line {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 2% 5%;
+}
+.line .side1 {
+	padding-right: 50px;
+}
+.side1 h1 {
+	font-size: 60px;
+	margin-bottom: 10px;
+	color: rgb(146, 33, 52);
+}
+.side1 button {
+	width: 200px;
+	padding: 12px 20px;
+	border-radius: 20px;
+	border-style: none;
+	color: black;
+	font-size: 17px;
+	font-weight: 600;
+}
+a {
+	text-decoration: none;
+	color: black;
+}
+/* section */
+section .topic a {
+	font-size: 25px;
+	font-weight: 500;
+	margin-bottom: 10px;
+}
+.about .boxes {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.about .boxes .box {
+	margin: 10px 20px;
+	max-width: calc(100% / 3 - 50px);
+	text-align: center;
+	border-radius: 12px;
+	padding: 30px 10px;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
+	cursor: default;
+}
+/* Contact Page */
+
+.contact {
+	padding: 20px;
+}
+
+.contact .content {
+	margin: 0 auto;
+	padding: 30px 0;
+}
+.content .title {
+	width: 80%;
+	text-align: center;
+	font-weight: bolder;
+	font-size: 40px;
+}
+.title {
+	margin-bottom: 30px;
+	margin-left: 80px;
+}
+.contactMenu {
+	display: flex;
+	justify-content: space-evenly;
+}
+.input2 {
+	margin-top: 10;
+}
+.label1 {
+	font-size: 18px;
+	margin-top: 8px;
+	margin-bottom: 8px;
+	font-weight: bolder;
+}
+.contactMenu .input1 input {
+	border-radius: 13px;
+	padding: 6px;
+}
+.input2 input {
+	border-color: rgb(167, 128, 128);
+	width: 400px;
+}
+.button {
+	margin-top: 12px;
+	margin-left: 5px;
+}
+.button button {
+	width: 162px;
+	height: 35px;
+	border-radius: 12px;
+	border-color: transparent;
+}
+button {
+	width: 162px;
+	height: 35px;
+	border-radius: 12px;
+	border-color: transparent;
+}
+.rightside1 {
+	display: flex;
+	flex-direction: column;
+	margin-left: 300px;
+}
+
+.title1 {
+	font-size: 18px;
+	margin-top: 8px;
+	margin-bottom: 5px;
+	font-weight: bolder;
+}
+.content1 {
+	width: 450px;
+	margin-top: 2px;
+	color: black;
+}
+
+/* Footer */
+footer {
+	background: var(--primary-color);
+	padding: 15px 0;
+	text-align: center;
+	font-family: "Poppins", sans-serif;
+}
+footer .footer span {
+	font-size: 17px;
+	font-weight: 400;
+	color: var(--white-color);
+}
+footer .footer span a {
+	font-weight: 500;
+	color: var(--white-color);
+}
+footer .footer span a:hover {
+	text-decoration: underline;
+}
+	<title align="center">Landing Page</title>
+</style>
+</head>
+
+<body>
+	<nav>
+		<div class="heading">Landing Page</div>
+		<span class="sideMenuButton"
+			onclick="openNavbar()">
+			☰
+		</span>
+
+		<div class="navbar">
+			<ul>
+				<li><a href="#Home">Home</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="#">Sign Up</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- Side navigation bar for
+		responsive website -->
+	<div class="sideNavigationBar"
+		id="sideNavigationBar">
+		<a href="#" class="closeButton"
+			onclick="closeNavbar()">
+		</a>
+		<a href="#">Home</a>
+		<a href="#">About</a>
+		<a href="#">Sign Up</a>
+	</div>
+	<!-- Content -->
+	<div class="line" id="Home">
+		<div class="side1">
+			<h1><b>THE CAKE TOWN</b></h1>
+			<button>
+				<a href="https://assets.telegraphindia.com/telegraph/2021/Oct/1634133271_whatsapp-image-2021-10-13-at-7-19-01-pm.jpeg">
+					Explore More
+				
+			</button>
+		</div>
+		<div class="side2">
+			<img src=
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK6tjtEMXRkBfJhWmSjkdqsnC7jH6ILFSbLA&usqp=CAU"				width="500">
+		</div>
+	</div>
+
+	<section class="about" id="My Projects">
+		<div class="content">
+			<div class="title">
+				<span>OFFERS ON BLACK FOREST CAKES  UPTO 70%</span>
+			</div>
+			<div class="boxes">
+				<div class="box">
+					<div class="topic">
+						<a href="" target="_blank">
+							 RED VELVET CAKE
+						</a>
+					</div>
+					<p>
+						Red velvet cake is traditionally a red, crimson, or scarlet-colored layer cake, layered with ermine icing. Traditional recipes do not use food coloring, with the red color due to non-Dutched, anthocyanin-rich cocoa. Common ingredients include buttermilk, butter, cocoa, vinegar, and flour.
+					</p>
+				</div>
+<div class="boxes">
+				<div class="box">
+					<div class="topic">
+						<a href="" target="_blank">
+							 STRAWBERRY CAKE
+						</a>
+					</div>
+					<p>
+					A divine two-layered cake filled with rich strawberry cream and crushed strawberries!
+
+Lovingly decorated with roses carved on its contours and  garnishing of fresh in-house strawberry compote on the top.
+
+					</p>
+				</div>
+
+				<div class="box">
+
+					<div class="topic">
+						<a href="" target="_blank">
+							BLACK FOREST
+						</a>
+					</div>
+					<p>
+Black Forest cake has multiple layers of chocolate sponge cake, cherries, and whipped cream. It is frosted with whipped cream and covered with chocolate shavings and a few cherries for decoration. Kirschwasser (cherry schnapps) is used to flavor the whipped cream
+						</p>
+				</div>
+
+				<div class="box">
+					<div class="topic">
+						<a href="" target="_blank">
+							CHOCOLATE CAKE
+						</a>
+					</div>
+					<p>
+						An ice cream cake is a cake with ice cream as the filling for a swiss roll or a layer cake. A simpler no-bake version can be made by layering different flavors of ice cream in a loaf pan. Ice cream cake is a popular party food, often eaten at birthdays and weddings, particularly in North America and Australia.
+                                                          
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="contact" id="contact">
+		<div class="content">
+			<div class="title"><span>Order Now!!!!</span></div>
+			<div class="contactMenu">
+				<div class="input1">
+					<div class="label1">Your Name</div>
+					<div class="input2">
+						<input type="text"
+							placeholder="Enter your Name here">
+					</div>
+					<div class="label1">
+						<label>Your phoneno</label>
+					</div>
+					<div class="input2">
+						<input type="text"
+							placeholder="Enter your phone no here">
+					</div>
+					<div class="label1">
+						<label>Your address</label>
+					</div>
+					<div class="input2">
+						<input type="text"
+							placeholder="Enter your address here">
+					</div>
+					<div class="button">
+						<button>Place Order Here</button>
+					</div>
+				</div>
+				<div class="input3">
+					<div class="rightside1">
+						<div class="title1">
+							<span>
+								Contact Us
+							</span>
+						</div>
+						<div class="content1">
+							A-56, 1stFloor, The cake town,
+							visakhapatnam, Andhra Pradesh - 245601
+						</div>
+						<div class="title1">
+							<span>More Information</span>
+						</div>
+						<div class="content1">
+							Greetings to all the cake lovers out there!!!!
+							We welcome you to the platform where we
+							consistently strive to offer the best
+							of cakes. This platform has been
+							designed for every cake lovers wishing to
+							expand their interest, share their
+							happiness and is ready to have their
+							dream cake.Thank you for choosing
+							and supporting us!
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Footer section -->
+	<footer>
+		<div class="footer">
+			<span>
+				Created By
+				<p>
+                                     THE CAKE TOWN
+                                 </p>
+			</span>
+		</div>
+	</footer>
+	
+</body>
+
+</html>
